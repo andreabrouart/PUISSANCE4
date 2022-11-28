@@ -24,6 +24,9 @@ public class CelluleDeGrille {
             return true;
         }
     }
+    public Jeton affecterJeton(Jeton jeton9){
+    return jetonCourant;
+    }
     public String lireCouleurDuJeton(){
     if (jetonCourant != null){
         if(jetonCourant.toString() == "R"){
