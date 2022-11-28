@@ -58,6 +58,12 @@ public boolean presenceTrouNoir(){
         return false;
     }
 }
+public Jeton recupererJeton(){
+    Jeton var1;
+    var1 = jetonCourant;
+    jetonCourant = null;
+    return var1;
+}
 }
 
 
