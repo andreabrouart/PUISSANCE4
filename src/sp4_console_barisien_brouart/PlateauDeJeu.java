@@ -43,4 +43,52 @@ public void afficherGrilleSurConsole(){
         }
     }
 }
+public boolean presenceJeton(int x, int y){
+    if (grille[x][y].presenceJeton()==true){
+        return true;
+    }else{
+    return false;
 }
+}
+public String lireCouleurDuJeton(int x, int y){
+    return grille[x][y].lireCouleurDuJeton();
+}
+public boolean ligneGagnantePourCouleur(String couleur){
+    int cjg =0; //compte jeton gagnant
+    for (int i=0; i<6; i++){
+        for (int j=0; j<7; j++){
+            if (grille[i][j].lireCouleurDuJeton()==couleur){
+                cjg+=1;
+                if (cjg==4){
+                    return true;
+                }
+            }else{
+                cjg=0;
+            }
+        }
+        cjg=0;
+    }
+    return false;
+}
+
+public boolean colonneGagnantePourCouleur(String couleur){
+    int cjg =0;
+    for (int j=0; j<7; j++){
+        for (int i=0; i<6; i++){
+            if (grille[i][j].lireCouleurDuJeton()==couleur){
+                cjg+=1;
+                if (cjg==4){
+                    return true;
+            }
+        }else{
+                cjg=0;
+            }
+        }
+        cjg=0;
+        
+}
+    return false;
+}
+}
+
+
