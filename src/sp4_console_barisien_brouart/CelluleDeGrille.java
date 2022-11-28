@@ -64,8 +64,40 @@ public Jeton recupererJeton(){
     jetonCourant = null;
     return var1;
 }
+public void supprimerJeton(){
+    jetonCourant = null;
+}
+public boolean presenceDesintegrateur(){
+    if (avoirDesintegrateur == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+public void placerDesintegrateur(){
+    avoirDesintegrateur = true;
+}
+public void supprimerDesintegrateur(){
+    avoirDesintegrateur = false;
+}
+public void activerTrouNoir(){
+    supprimerJeton();
+    supprimerTrouNoir();
 }
 
-
-
+    @Override
+    public String toString() {
+        if (presenceTrouNoir() ==true){
+            return "@";
+        }
+        if (presenceDesintegrateur()==true){
+            return "D";
+        }
+        if (presenceJeton()==true){
+              return jetonCourant.toString();
+        }else{
+            return ".";
+        }
+    }
+}
 
