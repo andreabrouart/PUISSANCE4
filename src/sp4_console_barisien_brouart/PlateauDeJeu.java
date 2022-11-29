@@ -95,6 +95,6 @@ public boolean colonneGagnantePourCouleur(String couleur){
 //        for (int j=0; j<4; j++)
 //    }
 //}
-//}
+}
 
 
