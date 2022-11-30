@@ -133,6 +133,49 @@ public boolean diagonaleDescendanteGagnantePourCouleur(String couleur){
 }
     return false;
 }
+public void tasserColonne(int col){
+ for (int i=0; i<6; i++){
+     if (grille[i][col]==null){
+         for (int j=i; j<5; j++){
+             grille[i][col]=grille[i+1][col];
+         }
+         grille[5][col] = null;   
+         }
+     }
+ } 
+public boolean colonneRemplie(int col){
+    if (presenceJeton(5,col)==true){
+        return true;
+    }else{
+    return false;
+    }
 }
+public void placerTrouNoir(int lig, int col){
+    if (grille[lig][col].presenceTrouNoir()==false){
+    grille[lig][col].placerTrouNoir();
+}
+}
+public void supprimerTrouNoir(int lig, int col){
+    if (grille[lig][col].presenceTrouNoir()==true){
+    grille[lig][col].supprimerTrouNoir();
+}
+}
+public void placerDesintegrateur(int lig, int col){
+    if (grille[lig][col].presenceDesintegrateur()==false){
+    grille[lig][col].placerDesintegrateur();
+}
+}
+public void supprimerJeton(int lig, int col){
+    if (grille[lig][col].presenceJeton()==true){
+    grille[lig][col].supprimerJeton();
+}
+}
+public void recupererJeton(int lig, int col){
+    if (grille[lig][col].presenceJeton()==true){
+    grille[lig][col].recupererJeton();
+}
+}
+}
+
 
 
