@@ -150,6 +150,13 @@ public boolean colonneRemplie(int col){
     return false;
     }
 }
+public boolean presenceTrouNoir(int ligne, int colonne){
+    if (grille[ligne][colonne].presenceTrouNoir()==true){
+        return true;
+    }else{
+        return false;
+    }
+}
 public void placerTrouNoir(int lig, int col){
     if (grille[lig][col].presenceTrouNoir()==false){
     grille[lig][col].placerTrouNoir();
@@ -159,6 +166,13 @@ public void supprimerTrouNoir(int lig, int col){
     if (grille[lig][col].presenceTrouNoir()==true){
     grille[lig][col].supprimerTrouNoir();
 }
+}
+public boolean presenceDesintegrateur(int ligne, int colonne){
+    if (grille[ligne][colonne].presenceDesintegrateur()==true){
+        return true;
+    }else{
+        return false;
+    }
 }
 public void placerDesintegrateur(int lig, int col){
     if (grille[lig][col].presenceDesintegrateur()==false){
