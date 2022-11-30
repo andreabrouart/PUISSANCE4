@@ -89,12 +89,50 @@ public boolean colonneGagnantePourCouleur(String couleur){
 }
     return false;
 }
-//public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
-//    int cjg=0;
-//    for (int i=0; i<3; i++){
-//        for (int j=0; j<4; j++)
-//    }
-//}
+public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
+    int cjg=0;
+    for (int i=0; i<3; i++){
+        for (int j=0; j<4; j++){
+            for (int k=0; k<7; k++){
+                if (grille[i+k][j+k].lireCouleurDuJeton()== couleur){
+                    cjg +=1;
+                }else{
+                    cjg = 0;
+                }
+                if (cjg ==4){
+                    return true;
+                }
+                if (i==5 && j==6){
+                    break;
+                }
+            }
+            cjg =0;
+    }
+}
+    return false;
+}
+public boolean diagonaleDescendanteGagnantePourCouleur(String couleur){
+    int cjg=0;
+    for (int i=3; i<6; i++){
+        for (int j=0; j<4; j++){
+            for (int k=0; k<7; k++){
+               if (grille[i-k][j+k].lireCouleurDuJeton()== couleur){
+                   cjg +=1;
+               }else{
+                   cjg=0;
+               }
+               if (cjg ==4){
+                    return true;
+            }
+               if (i==0 && j==6){
+                    break;
+                }
+        }
+            cjg=0;
+    }
+}
+    return false;
+}
 }
 
 
