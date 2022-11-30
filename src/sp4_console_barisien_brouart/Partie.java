@@ -42,8 +42,38 @@ public class Partie {
             int ligne =l.nextInt(0,6);
             int colonne =c.nextInt(0,7);
             if (plateau.presenceTrouNoir(ligne, colonne)==false && plateau.presenceDesintegrateur(ligne, colonne)==false){
-                
-            }
+                plateau.placerTrouNoir(ligne, colonne);
+                plateau.placerDesintegrateur(ligne,colonne);
+            }else{
+                i-=1;
         }
     }
+        for (int j=0; j<2; j++){
+            int ligne =l.nextInt(0,6);
+            int colonne =c.nextInt(0,7);
+            if (plateau.presenceTrouNoir(ligne, colonne)==false && plateau.presenceDesintegrateur(ligne, colonne)==false){
+            plateau.placerTrouNoir(ligne, colonne);
+        }else{
+                j-=1;
+            }
+        }
+        for (int k=0; k<2; k++){
+            int ligne =l.nextInt(0,6);
+            int colonne =c.nextInt(0,7);
+            if (plateau.presenceTrouNoir(ligne, colonne)==false && plateau.presenceDesintegrateur(ligne, colonne)==false){
+                plateau.placerDesintegrateur(ligne, colonne);
+        }else{
+                k-=1;
+    }
+        }
+    }
+public void initialiserPartie(){
+    attribuerCouleurAuxJoueurs();
+    creerEtAffecterJeton(listeJoueur[0]);
+    creerEtAffecterJeton(listeJoueur[1]);
+    placerTrousNoirsEtDesintegrateurs();   
+}
+public void lancerPartie(){
+    
+}
 }
