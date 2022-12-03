@@ -73,7 +73,61 @@ public void initialiserPartie(){
     creerEtAffecterJeton(listeJoueur[1]);
     placerTrousNoirsEtDesintegrateurs();   
 }
-public void lancerPartie(){
-    
+public void lancerPartie() {
+        initialiserPartie();
+        
+        // on choisit un joueur pour commencer
+        joueurCourant = listeJoueur[0];
+        
+        // tant que le joueur a pas gagne, ni l'auter joueur, et que la grille est pas remplie
+        while (plateau.partieGagnante( listeJoueur[0].lireCouleur())== false && plateau.partieGagnante( listeJoueur[1].lireCouleur())== false && plateau.grilleRemplie() == false) {
+            
+            // demander au joueur son coup à jouer
+            System.out.println("Si vous voulez ajouter un jeton, tapez 1\nSi vous voulez retirer un de vos jetons, tapez 2\nSi vous voulez desintégrer un jeton du joueur adverse, tapez 3");
+            Scanner sc = new Scanner(System.in);
+            int cas = sc.nextInt();
+            
+            // exécuter le coup
+            // cas 1: ajout d'un jeton : on ajoute, on active le trou noir potentiel et je donne le desintegrateur potentiel
+            if (cas==1){
+                System.out.println("Donnez le numéro de la colonne");
+                String col=sc.nextLine();
+                int y = Integer.parseInt(col);
+                
+                Jeton j = joueurCourant.jouerJeton();
+                plateau.ajouterJetonDansColonne(j, y);
+                plateau.placerTrouNoir(y, y);
+                plateau.placerDesintegrateur(y, y);
+            }
+            
+            // cas 2 : recupeter jeton : je recupere le jeton de la grille, le redonne au joueur, et tasse la colonne
+            if (cas==2){
+                System.out.println("Donnez le numéro de la ligne");
+                String lig=sc.nextLine();
+                int x = Integer.parseInt(lig);
+                System.out.println("Donnez le numéro de la colonne");
+                String col=sc.nextLine();
+                int y = Integer.parseInt(col);
+                plateau.recupererJeton(x, y);
+                plateau.ajouterJeton(jeton);
+                plateau.tasserColonne(y);
+            }
+            
+            // cas 3 : desintegrateur : je supprime le jeton de la grille ,et je tasse la colonne
+            if (cas==3){
+                System.out.println("Donnez le numéro de la ligne");
+                String lig=sc.nextLine();
+                int x = Integer.parseInt(lig);
+                System.out.println("Donnez le numéro de la colonne"); 
+                String col=sc.nextLine();
+                int y = Integer.parseInt(col);
+                plateau.placerDesintegrateur(x, y);
+                plateau.supprimerJeton(x, y);
+                plateau.tasserColonne(y);               
+            }
+            
+        }
+        
+        
 }
 }

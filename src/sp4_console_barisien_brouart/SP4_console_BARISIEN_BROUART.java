@@ -15,6 +15,10 @@ public class SP4_console_BARISIEN_BROUART {
      jeton1.lireCouleur();
      Jeton jeton2 = new Jeton("jaune");
      jeton2.lireCouleur();
+     
+     System.out.println("Vous entrez dans le jeu puissance 4");
+     
+     
     }
     
 }

@@ -15,10 +15,10 @@ for (int i =0; i<6; i++){
     }
 }
 }
-public int ajouterJetonDansColonne(Jeton j, int a){
+public int ajouterJetonDansColonne(Jeton j, int col){
     for (int k=5; k>=0; k++){
-        if ("R".equals(grille[k][a].lireCouleurDuJeton())|| grille[k][a].lireCouleurDuJeton()=="J"){
-            grille[k+1][a].affecterJeton(j);
+        if ("R".equals(grille[k][col].lireCouleurDuJeton())|| grille[k][col].lireCouleurDuJeton()=="J"){
+            grille[k+1][col].affecterJeton(j);
             return k+1;
         }
 }
@@ -131,6 +131,21 @@ public boolean diagonaleDescendanteGagnantePourCouleur(String couleur){
             cjg=0;
     }
 }
+    return false;
+}
+public boolean partieGagnante(String couleur){
+    if (ligneGagnantePourCouleur(couleur)==true){
+        return true;
+      }
+    if (colonneGagnantePourCouleur(couleur)==true){
+        return true;
+    }
+    if (diagonaleMontanteGagnantePourCouleur(couleur)==true){
+        return true;
+    }
+    if (diagonaleDescendanteGagnantePourCouleur(couleur)==true){
+        return true;
+    }
     return false;
 }
 public void tasserColonne(int col){
