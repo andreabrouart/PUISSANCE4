@@ -16,10 +16,10 @@ for (int i =0; i<6; i++){
 }
 }
 public int ajouterJetonDansColonne(Jeton j, int col){
-    for (int k=5; k>=0; k++){
-        if ("R".equals(grille[k][col].lireCouleurDuJeton())|| grille[k][col].lireCouleurDuJeton()=="J"){
-            grille[k+1][col].affecterJeton(j);
-            return k+1;
+    for (int k=0; k<6; k++){
+        if (grille[k][col].lireCouleurDuJeton() == "vide"){
+            grille[k][col].affecterJeton(j);
+            return k;
         }
 }
     return 0;
@@ -33,12 +33,12 @@ public boolean grilleRemplie(){
    return true;
 }
 public void afficherGrilleSurConsole(){
-    for (int i=0; i<6; i++){
+    for (int i=5; i>=0; i--){
         for (int j=0; j<7; j++){
             if (j==6){
-                System.out.println(grille[i][j]+"\n");
+                System.out.print(grille[i][j]+"\n");
             }else{
-                System.out.println(grille[i][j] + " ");
+                System.out.print(grille[i][j] + " ");
             }
         }
     }
@@ -93,7 +93,7 @@ public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
     int cjg=0;
     for (int i=0; i<3; i++){
         for (int j=0; j<4; j++){
-            for (int k=0; k<7; k++){
+            for (int k=0; k<4; k++){
                 if (grille[i+k][j+k].lireCouleurDuJeton()== couleur){
                     cjg +=1;
                 }else{
@@ -115,7 +115,7 @@ public boolean diagonaleDescendanteGagnantePourCouleur(String couleur){
     int cjg=0;
     for (int i=3; i<6; i++){
         for (int j=0; j<4; j++){
-            for (int k=0; k<7; k++){
+            for (int k=0; k<4; k++){
                if (grille[i-k][j+k].lireCouleurDuJeton()== couleur){
                    cjg +=1;
                }else{
@@ -149,12 +149,11 @@ public boolean partieGagnante(String couleur){
     return false;
 }
 public void tasserColonne(int col){
- for (int i=0; i<6; i++){
-     if (grille[i][col]==null){
-         for (int j=i; j<5; j++){
-             grille[i][col]=grille[i+1][col];
-         }
-         grille[5][col] = null;   
+ for (int i=0; i<5; i++){
+     if (grille[i][col].presenceJeton()==false){
+             Jeton  j = grille[i+1][col].recupererJeton();
+         
+             grille[i][col].affecterJeton(j);
          }
      }
  } 
@@ -202,15 +201,14 @@ public void supprimerJeton(int lig, int col){
     grille[lig][col].supprimerJeton();
 }
 }
-public void recupererJeton(int lig, int col){
+public Jeton recupererJeton(int lig, int col){
+    Jeton j=null;
     if (grille[lig][col].presenceJeton()==true){
-    grille[lig][col].recupererJeton();
+    j =grille[lig][col].recupererJeton();
 }
+    return j ;
 }
 
-    void ajouterJeton(Jeton j) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
 
 

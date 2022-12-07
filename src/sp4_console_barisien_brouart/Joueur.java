@@ -37,7 +37,8 @@ public class Joueur {
     }
     public void ajouterJeton(Jeton jeton1){
         reserveJetons.add(jeton1);
-    }
+     }
+    
     public Jeton jouerJeton(){
         Jeton jet = reserveJetons.remove(0);
         return jet;

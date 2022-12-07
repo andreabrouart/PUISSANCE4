@@ -19,11 +19,11 @@ System.out.println("Couleur du jeton : "+couleur);
 public String toString(){
   if (couleur=="rouge"){
           return "R";
-}else{ 
+}else if(couleur=="jaune"){
       return "J";
-  }
-
+  }else{
+    return null;
 }
 }
-    
+}   
 

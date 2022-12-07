@@ -24,8 +24,8 @@ public class CelluleDeGrille {
             return true;
         }
     }
-    public Jeton affecterJeton(Jeton jeton9){
-    return jetonCourant;
+    public void affecterJeton(Jeton jeton9){
+      jetonCourant = jeton9;
     }
     public String lireCouleurDuJeton(){
     if (jetonCourant != null){
