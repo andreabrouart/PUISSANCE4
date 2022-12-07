@@ -14,11 +14,11 @@ public class Joueur {
     private ArrayList<Jeton> reserveJetons =new ArrayList();
     private int nombreDesintegrateurs;
     
-    public Joueur(String nom, String couleur, int des){
+    public Joueur(String nom){
         Nom = nom;
-        Couleur = couleur;
-        nombreDesintegrateurs =des;
-        des =0;
+        Couleur = null;
+        nombreDesintegrateurs =0;
+       
         
     }
     public void affecterCouleur(String couleur){

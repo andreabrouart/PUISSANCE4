@@ -75,9 +75,7 @@ public void initialiserPartie(){
 }
 public void lancerPartie() {
         initialiserPartie();
-        System.out.println("Entrez le nom du joueur 1");
         Scanner sc = new Scanner(System.in);
-        String nom1 = sc.nextLine();
         
         // on choisit un joueur pour commencer
         joueurCourant = listeJoueur[0];
