@@ -189,6 +189,9 @@ public boolean presenceDesintegrateur(int ligne, int colonne){
         return false;
     }
 }
+public void supprimerDesintegrateur(int ligne, int colonne){
+    grille[ligne][colonne].supprimerDesintegrateur();
+}
 public void placerDesintegrateur(int lig, int col){
     if (grille[lig][col].presenceDesintegrateur()==false){
     grille[lig][col].placerDesintegrateur();
